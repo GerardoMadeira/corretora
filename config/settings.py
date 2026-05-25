@@ -151,4 +151,11 @@ CSRF_TRUSTED_ORIGINS = [
     "https://teste-corretora-gerardo-ajf4ebate7atare9.eastus-01.azurewebsites.net",
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": ("whitenoise.storage.CompressedManifestStaticFilesStorage"),
+    },
+}
