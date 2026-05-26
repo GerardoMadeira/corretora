@@ -134,22 +134,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = []
 if (BASE_DIR / "static").exists():
     STATICFILES_DIRS.append(BASE_DIR / "static")
-
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
-
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://teste-corretora-gerardo-ajf4ebate7atare9.eastus-01.azurewebsites.net",
-]
 
 STORAGES = {
     "default": {
@@ -159,5 +148,16 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://teste-corretora-gerardo-ajf4ebate7atare9.eastus-01.azurewebsites.net",
+]
+
 
 WHITENOISE_MANIFEST_STRICT = False
