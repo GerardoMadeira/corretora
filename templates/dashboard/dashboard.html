@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- TÍTULO -->
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">
+        📊 Dashboard
+    </h1>
+</div>
+
+    <div class="w-full bg-white border border-gray-200 p-6 text-gray-900 rounded-xl shadow-sm mb-8">
+    <h2 class="text-2xl font-bold tracking-tight text-gray-800">
+        Olá, {{ usuario.username }}!
+    </h2>
+    <p class="text-gray-500 text-sm mt-1">
+        Visão geral da sua corretora
+    </p>
+</div>
+
+<!-- CARDS -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Clientes -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+        <h2 class="text-gray-500 font-medium">Clientes</h2>
+        <p class="text-3xl font-bold mt-2">0</p>
+        <span class="text-sm text-green-500">+0 este mês</span>
+    </div>
+
+    <!-- Apólices -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+        <h2 class="text-gray-500 font-medium">Apólices</h2>
+        <p class="text-3xl font-bold mt-2">0</p>
+        <span class="text-sm text-blue-500">Ativas</span>
+    </div>
+
+    <!-- Financeiro -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+        <h2 class="text-gray-500 font-medium">Comissões</h2>
+        <p class="text-3xl font-bold mt-2">R$ 0</p>
+        <span class="text-sm text-yellow-500">Previsto</span>
+    </div>
+
+</div>
+
+<!-- ÁREA FUTURA -->
+<div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Atividades recentes -->
+    <div class="bg-white p-6 rounded-2xl shadow">
+        <h2 class="font-semibold text-gray-700 mb-4">
+            🧾 Últimas atividades
+        </h2>
+
+        <p class="text-gray-400 text-sm">
+            Nenhuma atividade ainda...
+        </p>
+    </div>
+
+    <!-- Atalhos -->
+    <div class="bg-white p-6 rounded-2xl shadow">
+        <h2 class="font-semibold text-gray-700 mb-4">
+            ⚡ Atalhos rápidos
+        </h2>
+
+        <div class="space-y-2">
+
+            <a href="#" class="block text-blue-600 hover:underline">
+                + Novo cliente
+            </a>
+
+            <a href="#" class="block text-blue-600 hover:underline">
+                + Nova apólice
+            </a>
+
+            <a href="#" class="block text-blue-600 hover:underline">
+                + Lançar comissão
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
