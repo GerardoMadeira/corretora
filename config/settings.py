@@ -36,7 +36,6 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -155,6 +154,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "home"
+
+AUTH_USER_MODEL = "accounts.User"
 
 CSRF_TRUSTED_ORIGINS = [
     "https://teste-corretora-gerardo-ajf4ebate7atare9.eastus-01.azurewebsites.net",
