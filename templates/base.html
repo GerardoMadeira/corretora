@@ -8,12 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 pb-20 md:pb-0">
 
-    <div class="flex min-h-screen">
+    <div class="flex min-h-screen flex-col md:flex-row">
 
-        <aside class="w-64 bg-white shadow-lg flex flex-col justify-between">
-
+        <!-- ========================================== -->
+        <!-- SIDEBAR (Apenas visível no Computador)     -->
+        <!-- ========================================== -->
+        <aside class="hidden md:flex md:w-64 bg-white shadow-lg md:flex-col md:justify-between">
             <div>
                 <div class="p-6 border-b">
                     <h1 class="text-2xl font-bold text-blue-600">
@@ -25,21 +27,19 @@
                     <a href="{% url 'dashboard' %}" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-medium transition">
                         Dashboard
                     </a>
-
                     <a href="#" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-medium transition">
                         Clientes
                     </a>
-
                     <a href="#" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-medium transition">
                         Apólices
                     </a>
-
                     <a href="#" class="block px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700 font-medium transition">
                         Financeiro
                     </a>
                 </nav>
             </div>
 
+            <!-- Botão de Logoff no PC -->
             <div class="p-4 border-t border-gray-100">
                 <form action="{% url 'logout' %}" method="post" class="w-full">
                     {% csrf_token %}
@@ -51,11 +51,54 @@
                     </button>
                 </form>
             </div>
-
         </aside>
 
-        <main class="flex-1 p-10">
+        <!-- ========================================== -->
+        <!-- MENU DO RODAPÉ (Apenas visível no Celular) -->
+        <!-- ========================================== -->
+        <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl grid grid-cols-5 items-center h-16 z-50 text-center">
+            
+            <!-- 1. Dashboard -->
+            <a href="{% url 'dashboard' %}" class="flex flex-col items-center justify-center py-2 text-blue-600">
+                <span class="text-xl">📊</span>
+                <span class="text-[9px] font-bold mt-0.5 tracking-tight">Dash</span>
+            </a>
+
+            <!-- 2. Clientes -->
+            <a href="#" class="flex flex-col items-center justify-center py-2 text-gray-500 hover:text-blue-600">
+                <span class="text-xl">👥</span>
+                <span class="text-[9px] font-medium mt-0.5 tracking-tight">Clientes</span>
+            </a>
+
+            <!-- 3. Apólices -->
+            <a href="#" class="flex flex-col items-center justify-center py-2 text-gray-500 hover:text-blue-600">
+                <span class="text-xl">📄</span>
+                <span class="text-[9px] font-medium mt-0.5 tracking-tight">Apólices</span>
+            </a>
+
+            <!-- 4. Financeiro -->
+            <a href="#" class="flex flex-col items-center justify-center py-2 text-gray-500 hover:text-blue-600">
+                <span class="text-xl">💰</span>
+                <span class="text-[9px] font-medium mt-0.5 tracking-tight">Finanças</span>
+            </a>
+
+            <!-- 5. Sair -->
+            <form action="{% url 'logout' %}" method="post" class="h-full w-full flex items-center justify-center">
+                {% csrf_token %}
+                <button type="submit" class="flex flex-col items-center justify-center h-full w-full text-red-500 hover:bg-red-50 transition-colors">
+                    <span class="text-xl">🚪</span>
+                    <span class="text-[9px] font-medium mt-0.5 tracking-tight">Sair</span>
+                </button>
+            </form>
+            
+        </nav>
+
+        <!-- ========================================== -->
+        <!-- CONTEÚDO PRINCIPAL                         -->
+        <!-- ========================================== -->
+        <main class="flex-1 p-4 md:p-10">
             {% block content %}
+            <!-- O conteúdo do dashboard vai entrar aqui -->
             {% endblock %}
         </main>
 
