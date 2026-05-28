@@ -1,88 +1,165 @@
 {% extends 'base.html' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Dashboard - Corretora{% endblock %}
 
 {% block content %}
-
-<!-- TÍTULO -->
+<!-- Título de Boas-Vindas -->
 <div class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-800">
-        📊 Dashboard
-    </h1>
+    <h2 class="text-2xl md:text-3xl font-bold text-[#1e293b]"> Bom dia, {{ usuario.username | capfirst }}!</h2>
+    <p class="text-sm text-[#64748b] mt-1">Aqui está o resumo da sua corretora hoje.</p>
 </div>
 
-    <div class="w-full bg-white border border-gray-200 p-6 text-gray-900 rounded-xl shadow-sm mb-8">
-    <h2 class="text-2xl font-bold tracking-tight text-gray-800">
-        Olá, {{ usuario.username }}!
-    </h2>
-    <p class="text-gray-500 text-sm mt-1">
-        Visão geral da sua corretora
-    </p>
-</div>
-
-<!-- CARDS -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-    <!-- Clientes -->
-    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
-        <h2 class="text-gray-500 font-medium">Clientes</h2>
-        <p class="text-3xl font-bold mt-2">0</p>
-        <span class="text-sm text-green-500">+0 este mês</span>
-    </div>
-
-    <!-- Apólices -->
-    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
-        <h2 class="text-gray-500 font-medium">Apólices</h2>
-        <p class="text-3xl font-bold mt-2">0</p>
-        <span class="text-sm text-blue-500">Ativas</span>
-    </div>
-
-    <!-- Financeiro -->
-    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
-        <h2 class="text-gray-500 font-medium">Comissões</h2>
-        <p class="text-3xl font-bold mt-2">R$ 0</p>
-        <span class="text-sm text-yellow-500">Previsto</span>
-    </div>
-
-</div>
-
-<!-- ÁREA FUTURA -->
-<div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <!-- Atividades recentes -->
-    <div class="bg-white p-6 rounded-2xl shadow">
-        <h2 class="font-semibold text-gray-700 mb-4">
-            🧾 Últimas atividades
-        </h2>
-
-        <p class="text-gray-400 text-sm">
-            Nenhuma atividade ainda...
-        </p>
-    </div>
-
-    <!-- Atalhos -->
-    <div class="bg-white p-6 rounded-2xl shadow">
-        <h2 class="font-semibold text-gray-700 mb-4">
-            ⚡ Atalhos rápidos
-        </h2>
-
-        <div class="space-y-2">
-
-            <a href="#" class="block text-blue-600 hover:underline">
-                + Novo cliente
-            </a>
-
-            <a href="#" class="block text-blue-600 hover:underline">
-                + Nova apólice
-            </a>
-
-            <a href="#" class="block text-blue-600 hover:underline">
-                + Lançar comissão
-            </a>
-
+<!-- GRID DOS 4 MINI CARDS -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+    
+    <!-- Card 1: Clientes -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-xl">👥</div>
+        <div>
+            <p class="text-xs font-semibold text-[#64748b]">Clientes</p>
+            <p class="text-2xl font-bold text-[#1e293b] mt-0.5">128</p>
+            <p class="text-[11px] text-emerald-600 font-medium mt-0.5"><span class="font-bold">+12</span> este mês</p>
         </div>
     </div>
 
+    <!-- Card 2: Apólices -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-xl">📄</div>
+        <div>
+            <p class="text-xs font-semibold text-[#64748b]">Apólices</p>
+            <p class="text-2xl font-bold text-[#1e293b] mt-0.5">256</p>
+            <p class="text-[11px] text-emerald-600 font-medium mt-0.5"><span class="font-bold">+18</span> este mês</p>
+        </div>
+    </div>
+
+    <!-- Card 3: Comissões -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-xl">💰</div>
+        <div>
+            <p class="text-xs font-semibold text-[#64748b]">Comissões</p>
+            <p class="text-xl font-bold text-[#1e293b] mt-0.5">R$ 45.680,00</p>
+            <p class="text-[11px] text-emerald-600 font-medium mt-0.5"><span class="font-bold">+8%</span> este mês</p>
+        </div>
+    </div>
+
+    <!-- Card 4: Recebimentos -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-xl">📊</div>
+        <div>
+            <p class="text-xs font-semibold text-[#64748b]">Recebimentos</p>
+            <p class="text-xl font-bold text-[#1e293b] mt-0.5">R$ 32.150,00</p>
+            <p class="text-[11px] text-emerald-600 font-medium mt-0.5"><span class="font-bold">+15%</span> este mês</p>
+        </div>
+    </div>
 </div>
 
+<!-- CONTAINER DOS GRÁFICOS -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+    <!-- Gráfico de Linha -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm lg:col-span-2 min-h-[300px] flex flex-col justify-between">
+        <div class="flex justify-between items-center">
+            <h3 class="font-bold text-[#1e293b]">Comissões nos últimos 6 meses</h3>
+            <span class="text-xs text-gray-400 bg-gray-50 border px-2.5 py-1 rounded-lg">Últimos 6 meses ▾</span>
+        </div>
+        <div class="flex-1 flex items-center justify-center text-gray-300 text-sm italic">
+            [Espaço do Gráfico de Linha - Chart.js]
+        </div>
+    </div>
+
+    <!-- Gráfico de Pizza/Donut -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm min-h-[300px] flex flex-col justify-between">
+        <h3 class="font-bold text-[#1e293b]">Apólices por ramo</h3>
+        <div class="flex-1 flex items-center justify-center text-gray-300 text-sm italic">
+            [Espaço do Gráfico Donut - Chart.js]
+        </div>
+    </div>
+</div>
+
+<!-- SEÇÃO INFERIOR: ATALHOS, ATIVIDADES E VENCIMENTOS (Limpa e corrigida) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+
+    <!-- 1. Atalhos Rápidos -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between min-h-[220px]">
+        <div>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-xl">⚡</span>
+                <h3 class="font-bold text-[#1e293b]">Atalhos rápidos</h3>
+            </div>
+            
+            <div class="space-y-3">
+                <a href="#" class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline py-1 transition">
+                    <span class="text-base font-bold">+</span> Novo cliente
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline py-1 transition">
+                    <span class="text-base font-bold">+</span> Nova apólice
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline py-1 transition">
+                    <span class="text-base font-bold">+</span> Lançar comissão
+                </a>
+            </div>
+        </div>
+        <div class="mt-2"></div>
+    </div>
+
+    <!-- 2. Atividades Recentes -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between min-h-[220px]">
+        <div>
+            <h3 class="font-bold text-[#1e293b] mb-4">Atividades recentes</h3>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-50 pb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-sm">👤</div>
+                        <div>
+                            <p class="text-sm font-semibold text-[#1e293b]">Novo cliente cadastrado</p>
+                            <p class="text-xs text-[#64748b]">Maria Oliveira foi cadastrada</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">Hoje, 09:15</span>
+                </div>
+                <div class="flex items-center justify-between border-b border-gray-50 pb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm">📄</div>
+                        <div>
+                            <p class="text-sm font-semibold text-[#1e293b]">Nova apólice emitida</p>
+                            <p class="text-xs text-[#64748b]">Apólice Auto - FIAT Toro 2023</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">Hoje, 08:42</span>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="text-center text-xs text-blue-600 font-semibold mt-4 hover:underline block">Ver todas as atividades</a>
+    </div>
+
+    <!-- 3. Próximos Vencimentos -->
+    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between min-h-[220px] md:col-span-2 lg:col-span-1">
+        <div>
+            <h3 class="font-bold text-[#1e293b] mb-4">Próximos vencimentos</h3>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-gray-50 pb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-sm">📅</div>
+                        <div>
+                            <p class="text-sm font-semibold text-[#1e293b]">Apólice Auto - ABC1234</p>
+                            <p class="text-xs text-red-500 font-medium">Vencimento em 5 dias</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-semibold text-red-500 bg-red-50 px-2 py-0.5 rounded">15/06/2026</span>
+                </div>
+                <div class="flex items-center justify-between border-b border-gray-50 pb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-sm">📅</div>
+                        <div>
+                            <p class="text-sm font-semibold text-[#1e293b]">Apólice Residencial - DEF5678</p>
+                            <p class="text-xs text-[#64748b]">Vencimento em 8 dias</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">18/06/2026</span>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="text-center text-xs text-blue-600 font-semibold mt-4 hover:underline block">Ver todos os vencimentos</a>
+    </div>
+
+</div>
 {% endblock %}
