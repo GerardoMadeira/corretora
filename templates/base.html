@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,7 +21,7 @@
         <aside class="hidden md:flex md:w-64 bg-white border-r border-gray-100 md:flex-col md:justify-between h-screen sticky top-0">
             <div>
                 <div class="p-6 flex items-center gap-2.5">
-                    <span class="text-2xl">🛡️</span>
+                    <img src="{% static 'img/escudo.png' %}" alt="Logo Corretora" class="w-7 h-7 object-contain">
                     <h1 class="text-xl font-bold text-[#1e293b] tracking-tight">Corretora</h1>
                 </div>
 
@@ -59,7 +60,7 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>
             </button>
             <div class="flex items-center gap-1.5">
-                <span class="text-xl">🛡️</span>
+                <img src="{% static 'img/escudo.png' %}" alt="Logo Corretora" class="w-7 h-7 object-contain">
                 <span class="font-bold text-blue-600 text-lg">Corretora</span>
             </div>
             
@@ -72,7 +73,7 @@
                 
                 <!-- Bolinha Azul dinâmica para o Mobile -->
                 <div class="w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs uppercase">
-                    {{ user.username|slice:":1" }}
+                    {{ user.nome|slice:":1" }}
                 </div>
             </div>
         </header>
@@ -114,11 +115,11 @@
                 </button>
                 <div class="flex items-center gap-3 border-l pl-4 border-gray-100">
                     <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm uppercase">
-                        {{ user.username|slice:":1" }}
+                        {{ user.nome|slice:":1" }}
                     </div>
                     <div class="text-left">
-                        <p class="text-sm font-semibold text-gray-700 leading-none">{% if user.first_name %}{{ user.first_name|capfirst }}{% else %}{{ user.username|capfirst }}{% endif %}</p>
-                        <p class="text-[11px] text-gray-400 mt-0.5">Corretora {% if user.first_name %}{{ user.first_name|capfirst }}{% else %}{{ user.username|capfirst }}{% endif %}</p>
+                        <p class="text-sm font-semibold text-gray-700 leading-none">{{ user.nome|title }}</p>
+                        <p class="text-[11px] text-gray-400 mt-0.5">{{ usuario.nome_corretora|title }}</p>
                     </div>
                 </div>
             </div>
