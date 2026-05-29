@@ -13,7 +13,7 @@
     </style>
 </head>
 
-<body class="bg-[#f8fafc] pb-20 md:pb-0 text-gray-800">
+<body class="bg-gradient-to-b from-[#f8fafc] to-[#eef2f7] pb-20 md:pb-0 text-gray-800">
 
     <div class="flex min-h-screen flex-col md:flex-row">
 
@@ -67,12 +67,12 @@
             <!-- Grupo da direita no mobile: Sino + Bolinha azul com Inicial do usuário -->
             <div class="flex items-center gap-2.5">
                 <button class="relative text-gray-500 p-1">
-                    <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg>
                 </button>
                 
                 <!-- Bolinha Azul dinâmica para o Mobile -->
-                <div class="w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs uppercase">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 shadow-md text-white font-bold flex items-center justify-center text-xs uppercase">
                     {{ user.nome|slice:":1" }}
                 </div>
             </div>
@@ -110,11 +110,11 @@
             <!-- Topbar (Apenas PC) -->
             <div class="hidden md:flex justify-end items-center px-10 py-4 bg-white border-b border-gray-100 gap-4">
                 <button class="text-gray-400 hover:text-gray-600 relative">
-                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg>
                 </button>
                 <div class="flex items-center gap-3 border-l pl-4 border-gray-100">
-                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm uppercase">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 shadow-md text-white font-bold flex items-center justify-center text-sm uppercase">
                         {{ user.nome|slice:":1" }}
                     </div>
                     <div class="text-left">
